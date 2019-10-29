@@ -153,10 +153,10 @@ class Cell():
         for each_addr in self.arroundSiteList:
             each_addr_x = 6371393*math.cos(each_addr[1]/180*math.pi)*math.cos(each_addr[0]/180*math.pi)
             each_addr_y = 6371393*math.cos(each_addr[1]/180*math.pi)*math.sin(each_addr[0]/180*math.pi)
-            if SingCell_FaceTo(self.x, self.y, each_addr_x, each_addr_y, self.Antenna_azimuth, 60):
+            if SingCell_FaceTo(self.x, self.y, each_addr_x, each_addr_y, self.Antenna_azimuth,45):
                 dist = distance_Calc(self.Long, self.Lat, each_addr[0], each_addr[1])
                 calc_avgdist.append(dist)
-        calc_avgdist.sort(reverse=True)
+        calc_avgdist.sort()
         if len(calc_avgdist) >= 3:
             calc_avg_dis_list = calc_avgdist[:3]
         elif len(calc_avgdist):
